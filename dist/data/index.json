@@ -1,0 +1,156 @@
+[
+ {
+  "id": "anime",
+  "name": "Anime",
+  "accent": "anime",
+  "tagline": "Hand-drawn worlds that refuse to sit still.",
+  "blurb": "Five original studios, one shared obsession with weather, machinery and grief. Start with the tide, end with the kite.",
+  "subTags": [
+   "Mecha",
+   "Slice of Life",
+   "Supernatural",
+   "Sports",
+   "Historical"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 6,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 2981401199
+ },
+ {
+  "id": "gaming",
+  "name": "Gaming",
+  "accent": "gaming",
+  "tagline": "Worlds you are allowed to break.",
+  "blurb": "Systems-first design from studios that would rather you found the exploit than followed the path.",
+  "subTags": [
+   "Tactics",
+   "Open World",
+   "Roguelike",
+   "Simulation",
+   "Narrative"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 5,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 2070437104
+ },
+ {
+  "id": "movies",
+  "name": "Movies",
+  "accent": "movies",
+  "tagline": "Ninety minutes, one unbearable decision.",
+  "blurb": "Independent features from invented studios, shot mostly on location and mostly at dusk.",
+  "subTags": [
+   "Drama",
+   "Thriller",
+   "Documentary",
+   "Period",
+   "Animation"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 5,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 629128180
+ },
+ {
+  "id": "tv",
+  "name": "TV Shows",
+  "accent": "tv",
+  "tagline": "Long stories told at the speed of a life.",
+  "blurb": "Serialised drama from invented networks, where the season finale is rarely the loudest episode.",
+  "subTags": [
+   "Crime",
+   "Comedy",
+   "Anthology",
+   "Sci-Fi",
+   "Workplace"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 5,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 1262835279
+ },
+ {
+  "id": "kpop",
+  "name": "K-Pop",
+  "accent": "kpop",
+  "tagline": "Choreography as architecture.",
+  "blurb": "Invented groups, invented discographies, and the fan cultures that grow around them.",
+  "subTags": [
+   "Debut",
+   "Comeback",
+   "Choreography",
+   "B-Side",
+   "Live"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 5,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 2423693913
+ },
+ {
+  "id": "comics",
+  "name": "Comics",
+  "accent": "comics",
+  "tagline": "Twenty-two pages, no wasted panel.",
+  "blurb": "Creator-owned original series from invented imprints, printed on paper that shows the ink.",
+  "subTags": [
+   "Superhero",
+   "Literary",
+   "Horror",
+   "All-Ages",
+   "Anthology"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 5,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 3879532451
+ },
+ {
+  "id": "manga",
+  "name": "Manga",
+  "accent": "manga",
+  "tagline": "Serialised weekly, felt permanently.",
+  "blurb": "Original long-form series from invented magazines, where the chapter break does half the work.",
+  "subTags": [
+   "Shonen",
+   "Josei",
+   "Sports",
+   "Historical",
+   "Supernatural"
+  ],
+  "counts": {
+   "content": 14,
+   "characters": 5,
+   "events": 3,
+   "gallery": 6,
+   "releases": 4
+  },
+  "seed": 276103931
+ }
+]
