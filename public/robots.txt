@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Add this line once the site has a domain — the Sitemap directive
+# requires a full absolute URL and is rejected as a relative path:
+# Sitemap: https://your-domain.example/sitemap.xml
