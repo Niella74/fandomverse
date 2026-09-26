@@ -1,122 +1,79 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { StoreProvider } from './lib/store';
+import Layout from './components/Layout';
+import CommandPalette from './components/CommandPalette';
+import Chatbot from './components/Chatbot';
 
-function App() {
-  const [count, setCount] = useState(0)
+import Home from './pages/Home';
+const Category = lazy(() => import('./pages/Category'));
+const Article = lazy(() => import('./pages/Article'));
+const CharacterPage = lazy(() => import('./pages/Character'));
+const Search = lazy(() => import('./pages/Search'));
+const Trailers = lazy(() => import('./pages/Trailers'));
+const Events = lazy(() => import('./pages/Events'));
+const MerchList = lazy(() => import('./pages/Merch').then((m) => ({ default: m.MerchList })));
+const MerchDetail = lazy(() => import('./pages/Merch').then((m) => ({ default: m.MerchDetail })));
+const Cart = lazy(() => import('./pages/Cart'));
+const Bookmarks = lazy(() => import('./pages/Bookmarks'));
+const About = lazy(() => import('./pages/Static').then((m) => ({ default: m.About })));
+const Contact = lazy(() => import('./pages/Static').then((m) => ({ default: m.Contact })));
+const NotFound = lazy(() => import('./pages/Static').then((m) => ({ default: m.NotFound })));
+
+/* HashRouter is deliberate: the build is a folder of static files with no
+   server to rewrite routes, so hash paths work when opened from disk or
+   dropped on any static host. */
+
+export default function App() {
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setPaletteOpen((v) => !v);
+      }
+      // "/" opens search too, unless the visitor is typing in a field
+      if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName)) {
+        e.preventDefault();
+        setPaletteOpen(true);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <StoreProvider>
+      <HashRouter>
+        <Suspense fallback={
+          <div className="grid min-h-[60vh] place-items-center">
+            <p className="font-mono text-sm text-ink-mute">Loading…</p>
+          </div>
+        }>
+        <Routes>
+          <Route element={<Layout onOpenSearch={() => setPaletteOpen(true)} />}>
+            <Route index element={<Home />} />
+            <Route path="c/:catId" element={<Category />} />
+            <Route path="c/:catId/article/:itemId" element={<Article />} />
+            <Route path="c/:catId/character/:itemId" element={<CharacterPage />} />
+            <Route path="search" element={<Search />} />
+            <Route path="trailers" element={<Trailers />} />
+            <Route path="events" element={<Events />} />
+            <Route path="merch" element={<MerchList />} />
+            <Route path="merch/:itemId" element={<MerchDetail />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="bookmarks" element={<Bookmarks />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+        </Suspense>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+        <Chatbot />
+      </HashRouter>
+    </StoreProvider>
+  );
 }
-
-export default App
