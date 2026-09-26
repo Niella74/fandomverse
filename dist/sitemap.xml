@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc><priority>1.0</priority></url>
+  <url><loc>/#/c/anime</loc><priority>0.8</priority></url>
+  <url><loc>/#/c/gaming</loc><priority>0.8</priority></url>
+  <url><loc>/#/c/movies</loc><priority>0.8</priority></url>
+  <url><loc>/#/c/tv</loc><priority>0.8</priority></url>
+  <url><loc>/#/c/kpop</loc><priority>0.8</priority></url>
+  <url><loc>/#/c/comics</loc><priority>0.8</priority></url>
+  <url><loc>/#/c/manga</loc><priority>0.8</priority></url>
+  <url><loc>/#/search</loc><priority>0.6</priority></url>
+  <url><loc>/#/trailers</loc><priority>0.6</priority></url>
+  <url><loc>/#/events</loc><priority>0.6</priority></url>
+  <url><loc>/#/merch</loc><priority>0.6</priority></url>
+  <url><loc>/#/about</loc><priority>0.5</priority></url>
+  <url><loc>/#/contact</loc><priority>0.5</priority></url>
+</urlset>
